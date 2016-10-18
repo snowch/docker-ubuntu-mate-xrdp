@@ -11,10 +11,13 @@ docker rmi $(docker images -q)
 docker build -t snowch/docker-ubuntu-mate-xrdp:0.1 github.com/snowch/docker-ubuntu-mate-xrdp
 
 # Run the image
-docker run -d -p 3389:3389 -v /Users/snowch:/mnt snowch/docker-ubuntu-mate-xrdp:0.1
+docker run -d -p 3389:3389 \
+           -v /Users/snowch:/mnt \
+           -v /Users/snowch/docker-ubuntu-mate-xrdp:/home/desktop \
+           snowch/docker-ubuntu-mate-xrdp:0.1
 ```
 
 You can now use a remote desktop client:
 
-username: desktop
-password: desktop
+- username: desktop
+- password: desktop
